@@ -4,6 +4,7 @@ import esbuildPlugin from 'rollup-plugin-esbuild'
 import nodeResolvePlugin from '@rollup/plugin-node-resolve'
 import commonjsPlugin from '@rollup/plugin-commonjs'
 import pkg from './package.json'
+import alias from '@rollup/plugin-alias'
 
 const createConfig = ({ minify, format, dts } = {}) => {
   const filename = `[name]${format === 'esm' ? '.esm' : ''}${
@@ -18,6 +19,12 @@ const createConfig = ({ minify, format, dts } = {}) => {
       entryFileNames: dts ? '[name].d.ts' : filename,
     },
     plugins: [
+      alias({
+        entries: [
+          { find: 'preact', replacement: 'fre' },
+          { find: 'fre/hooks', replacement: 'fre' }
+        ]
+      }),
       commonjsPlugin({}),
       nodeResolvePlugin({
         extensions: dts
