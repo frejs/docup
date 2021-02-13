@@ -17,7 +17,7 @@ module.exports = {
     PRISM_LANGUAGES: getPrismLanguages(),
   },
   babel: {
-    jsx: 'preact',
+    jsx: 'h',
   },
   devServer: {
     after(app) {

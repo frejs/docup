@@ -1,10 +1,7 @@
-import { h, FunctionComponent } from 'preact'
+import { h } from 'fre'
 import { LoadingState } from './App'
 
-export const Main: FunctionComponent<{
-  html: string
-  loadingState: LoadingState
-}> = ({ html, loadingState }) => {
+export const Main= ({ html, loadingState }) => {
   return (
     <div class="mt-12 main">
       <div class="max-w-2xl xl:max-w-4xl">
